@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: convert-temp
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      aplicacao: convert-temp
+  template:
+    metadata:
+      labels:
+        aplicacao: convert-temp
+    spec:
+      containers:
+        - name: convert-temp
+          image: brunobizarri/convert-temp:1.1
+          ports:
+            - containerPort: 8080
